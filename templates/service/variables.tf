@@ -23,7 +23,7 @@ variable "agent_name" {
 variable "location" {
   description = "Location of the agent services.  It must be the same as the agent infrastructure/cluster location."
   type        = string
-  default     = "us-south"
+  default     = "eu-fr2"
 }
 
 variable "resource_group_name" {
@@ -44,7 +44,7 @@ variable "schematics_endpoint_location" {
 
   validation {
     condition     = contains(["us-south", "us-east", "eu-de", "eu-gb", "eu-fr"], var.schematics_endpoint_location)
-    error_message = "Invalid input, options: \"us-south\", \"us-east\", \"eu-de\", \"eu-gb\"."
+    error_message = "Invalid input, options: \"us-south\", \"us-east\", \"eu-fr\", \"eu-gb\"."
   }
 }
 
@@ -67,6 +67,12 @@ variable "logdna_name" {
   description = "Name of the IBM Log Analysis service instance, used to send the agent logs."
   type        = string
   #default     = "my-project-logdna"
+}
+
+variable "logdna_resource_group_name" {
+  description = "Name of the IBM Log Analysis resource group, used to send the agent logs."
+  type        = string
+  #default     = "default"
 }
 
 variable "ibmcloud_api_key" {
