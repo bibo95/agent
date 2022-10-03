@@ -31,7 +31,10 @@ data "ibm_resource_group" "resource_group" {
 }
 
 ##############################################################################
-
+# Resource Group where LOGDNA is created
+data "ibm_resource_group" "resource_group_logdna" {
+  name = var.logdna_resource_group_name
+}
 
 ##############################################################################
 # Kubetnetes provider setup
